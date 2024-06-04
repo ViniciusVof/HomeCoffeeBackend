@@ -1,12 +1,9 @@
-import Fastify from "fastify";
-import cors from "@fastify/cors";
+import express from "express";
 
-const app = Fastify();
+const app = express();
 
-app.register(cors);
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
-app
-  .listen({
-    port: 3333,
-  })
-  .then(() => console.log("Server is running on port 3333"));
+app.listen(3333, () => console.log("Server is running on port 3333"));
